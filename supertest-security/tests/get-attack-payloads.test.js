@@ -12,9 +12,7 @@ describe('getAttackPayloads', () => {
     expect(payloadsVectors).toHaveLength(2);
 
     for (const vector of payloadsVectors) {
-      const isAttackVectorPresent = attackVectors.includes(vector);
-
-      expect(isAttackVectorPresent).toBeTruthy();
+      expect(attackVectors).toContain(vector);
 
       const payloadsVector = payloads[vector];
 
