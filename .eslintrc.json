@@ -1,0 +1,36 @@
+{
+  "env": {
+    "node": true,
+    "commonjs": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "extends": ["airbnb-base", "plugin:node/recommended", "prettier"],
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-shadow": "warn",
+    "no-useless-constructor": "off",
+    "no-param-reassign": "off",
+    "no-console": "off",
+    "class-methods-use-this": "off",
+    "no-return-await": "off",
+    "no-restricted-syntax": "off",
+    "no-plusplus": "off",
+    "guard-for-in": "off",
+    "func-names": "off",
+    "no-continue": "off"
+  },
+  "overrides": [
+    {
+      "files": "*/tests/**",
+      "extends": ["plugin:jest/recommended", "plugin:jest/style"],
+      "rules": {
+        "node/no-unpublished-require": 0,
+        "node/no-missing-require": 0,
+        "jest/no-export": "off"
+      }
+    }
+  ]
+}
