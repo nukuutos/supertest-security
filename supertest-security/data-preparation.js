@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const cloneDeep = require('lodash.clonedeep');
+const getAttackVectors = require('./utils/get-attack-vectors');
 
 require('./modules/path');
 
