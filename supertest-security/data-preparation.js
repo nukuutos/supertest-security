@@ -18,47 +18,6 @@ require("./modules/path");
 //   arrayObjects: [{ wan: "super" }],
 // };
 
-const getAttackVectors = (template) => {
-  const vectors = [];
-
-  const handleObjectCase = (template) => {
-    const keys = Object.keys(template);
-
-    for (const key of keys) {
-      const value = template[key];
-
-      if (typeof value === "string") vectors.push(value);
-      else if (typeof value === "object") helper(value);
-    }
-  };
-
-  const handleArrayCase = (arrayTemplate) => {
-    const areValuesObjects = typeof arrayTemplate[0] === "object";
-
-    if (!areValuesObjects) {
-      return arrayTemplate.forEach((value) => vectors.push(value));
-    }
-
-    arrayTemplate.forEach((object) => helper(object));
-  };
-
-  const helper = (template) => {
-    if (Array.isArray(template)) {
-      return handleArrayCase(template);
-    } else if (typeof template === "object") {
-      return handleObjectCase(template);
-    }
-
-    throw Error(`Incorrect template type: ${typeof template}. \nTemplate: ${template}`);
-  };
-
-  helper(template);
-
-  const vectorsWithoutDuplicates = [...new Set(vectors)];
-
-  return vectorsWithoutDuplicates;
-};
-
 const getAttackPayloads = (vectors) => {
   const payloads = {};
 
