@@ -4,20 +4,6 @@ const getAttackVectors = require('./utils/get-attack-vectors');
 const getAttackPayloads = require('./utils/get-attack-payloads');
 const getNestedValue = require('./utils/get-nested-value');
 
-// const bodyFields = {
-//   firstName: "Nikita",
-//   lastName: "Voloshin",
-//   siblings: ["uncle"],
-//   nested: {
-//     age: 22,
-//     nestedNested: {
-//       something: "value",
-//       array: ["good"],
-//     },
-//   },
-//   arrayObjects: [{ wan: "super" }],
-// };
-
 const dataPreparation = (data, template) => {
   // need to check attack vectors end get it
   const attackVectors = getAttackVectors(template);
@@ -81,9 +67,6 @@ const dataPreparation = (data, template) => {
   };
 
   helper();
-
-  // const pathToFile = path.rootJoin("results.json");
-  // fs.writeFileSync(pathToFile, JSON.stringify(tests), { encoding: "utf-8" });
 
   return tests;
 };
