@@ -1,8 +1,8 @@
-const fs = require("fs");
-const path = require("path");
-const cloneDeep = require("lodash.clonedeep");
+const fs = require('fs');
+const path = require('path');
+const cloneDeep = require('lodash.clonedeep');
 
-require("./modules/path");
+require('./modules/path');
 
 // const bodyFields = {
 //   firstName: "Nikita",
@@ -23,8 +23,8 @@ const getAttackPayloads = (vectors) => {
 
   for (const vector of vectors) {
     const filename = `${vector}.txt`;
-    const pathToFile = path.rootJoin("supertest-security", "payloads", filename);
-    const data = fs.readFileSync(pathToFile, { encoding: "utf-8" }).split("\r\n");
+    const pathToFile = path.rootJoin('supertest-security', 'payloads', filename);
+    const data = fs.readFileSync(pathToFile, { encoding: 'utf-8' }).split('\r\n');
     payloads[vector] = data;
   }
 
@@ -66,7 +66,7 @@ const dataPreparation = (data, template) => {
     };
 
     const handleArrayCase = (templateValue, field, currentPath) => {
-      const isAttackVectors = templateValue[0] && typeof templateValue[0] === "string";
+      const isAttackVectors = templateValue[0] && typeof templateValue[0] === 'string';
       if (!isAttackVectors) {
         currentPath = [...currentPath, 0];
         return helper(currentPath);
@@ -89,15 +89,15 @@ const dataPreparation = (data, template) => {
     };
 
     for (const field of fields) {
-      let currentPath = [...keyPath, field];
+      const currentPath = [...keyPath, field];
 
       const templateValue = getValue(template, currentPath);
 
-      if (typeof templateValue === "string") {
+      if (typeof templateValue === 'string') {
         handleStringCase(templateValue, field);
       } else if (Array.isArray(templateValue)) {
         handleArrayCase(templateValue, field, currentPath);
-      } else if (typeof templateValue === "object") {
+      } else if (typeof templateValue === 'object') {
         helper(currentPath);
       }
     }
