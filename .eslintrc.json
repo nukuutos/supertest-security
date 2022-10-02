@@ -31,6 +31,13 @@
         "node/no-missing-require": 0,
         "jest/no-export": "off"
       }
+    },
+    {
+      "files": "app.js",
+      "rules": {
+        "node/no-unpublished-require": 0,
+        "import/no-extraneous-dependencies": 0
+      }
     }
   ]
 }

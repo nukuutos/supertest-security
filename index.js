@@ -20,11 +20,11 @@ const bodyFields = {
   nested: {
     age: 22,
     nestedNested: {
-      somthing: 'value',
+      something: 'value',
       array: ['good'],
     },
   },
-  objectArray: [{ propery: 'haha' }],
+  objectArray: [{ property: 'haha' }],
 };
 
 const template = {
@@ -40,13 +40,13 @@ const template = {
 
 const tests = dataPreparation(bodyFields, template);
 
-supertest.testBodyFields(tests, (responses) => {
-  for (const response of responses) {
-    console.log(response.statusCode);
-  }
-});
+// supertest.testBodyFields(tests, (responses) => {
+//   for (const response of responses) {
+//     console.log(response.statusCode);
+//   }
+// });
 
 // 5844 per 15.256s
-// getTimeForExecution(() =>
-//   supertest.testBodyFields(tests, (responses) => console.log(responses.length))
-// );
+getTimeForExecution(() =>
+  supertest.testBodyFields(tests, (responses) => console.log(responses.length))
+);
