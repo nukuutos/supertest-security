@@ -1,6 +1,6 @@
 const app = require("./app");
 const SupertestSecurity = require("./supertest-security/supertest-security");
-const dataPrepation = require("./supertest-security/data-preparation");
+const dataPreparation = require("./supertest-security/data-preparation");
 
 const { getTimeForExecution } = require("./utils");
 
@@ -38,7 +38,7 @@ const template = {
   },
 };
 
-const tests = dataPrepation(bodyFields, template);
+const tests = dataPreparation(bodyFields, template);
 
 supertest.testBodyFields(tests, (responses) => {
   for (const response of responses) {

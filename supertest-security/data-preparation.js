@@ -82,7 +82,7 @@ const getValue = (object, path) => {
   return value;
 };
 
-const dataPrepation = (data, template) => {
+const dataPreparation = (data, template) => {
   // need to check attack vectors end get it
   const attackVectors = getAttackVectors(template);
   const attackPayloads = getAttackPayloads(attackVectors);
@@ -152,4 +152,4 @@ const dataPrepation = (data, template) => {
   return tests;
 };
 
-module.exports = dataPrepation;
+module.exports = dataPreparation;
