@@ -2,8 +2,7 @@ const cloneDeep = require('lodash.clonedeep');
 
 const getAttackVectors = require('./utils/get-attack-vectors');
 const getAttackPayloads = require('./utils/get-attack-payloads');
-
-require('./modules/path');
+const getNestedValue = require('./utils/get-nested-value');
 
 // const bodyFields = {
 //   firstName: "Nikita",
@@ -19,16 +18,6 @@ require('./modules/path');
 //   arrayObjects: [{ wan: "super" }],
 // };
 
-const getValue = (object, path) => {
-  let value = object;
-
-  for (const key of path) {
-    value = value[key];
-  }
-
-  return value;
-};
-
 const dataPreparation = (data, template) => {
   // need to check attack vectors end get it
   const attackVectors = getAttackVectors(template);
@@ -36,7 +25,7 @@ const dataPreparation = (data, template) => {
   const tests = [];
 
   const helper = (keyPath = []) => {
-    const currentTemplateLevel = getValue(template, keyPath);
+    const currentTemplateLevel = getNestedValue(template, keyPath);
     const fields = Object.keys(currentTemplateLevel);
 
     const handleStringCase = (templateValue, field) => {
@@ -45,7 +34,7 @@ const dataPreparation = (data, template) => {
       // check ref for undefined
       for (const payload of payloads) {
         const testData = cloneDeep(data);
-        const ref = getValue(testData, keyPath);
+        const ref = getNestedValue(testData, keyPath);
         if (Array.isArray(ref[field])) ref[field] = [payload];
         else ref[field] = payload;
 
@@ -67,7 +56,7 @@ const dataPreparation = (data, template) => {
 
         for (const payload of payloads) {
           const testData = cloneDeep(data);
-          const ref = getValue(testData, keyPath);
+          const ref = getNestedValue(testData, keyPath);
           if (Array.isArray(ref[field])) ref[field] = [payload];
           else ref[field] = payload;
 
@@ -79,7 +68,7 @@ const dataPreparation = (data, template) => {
     for (const field of fields) {
       const currentPath = [...keyPath, field];
 
-      const templateValue = getValue(template, currentPath);
+      const templateValue = getNestedValue(template, currentPath);
 
       if (typeof templateValue === 'string') {
         handleStringCase(templateValue, field);
