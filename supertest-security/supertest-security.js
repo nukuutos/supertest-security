@@ -1,8 +1,8 @@
-const supertest = require("supertest");
-const app = require("../app");
+const supertest = require('supertest');
+const app = require('../app');
 
 class SupertestSecurity {
-  constructor(app, { template, routeParams, method = "post" }) {
+  constructor(app, { template, routeParams, method = 'post' }) {
     this.app = app;
     this.template = template;
     this.routeParams = routeParams;
@@ -12,7 +12,7 @@ class SupertestSecurity {
   getUrl() {
     const { routeParams, template } = this;
 
-    const templateArray = template.split("/");
+    const templateArray = template.split('/');
 
     for (const param in routeParams) {
       const paramIndex = templateArray.indexOf(`:${param}`);
@@ -20,7 +20,7 @@ class SupertestSecurity {
       templateArray[paramIndex] = routeParams[param];
     }
 
-    return encodeURI(templateArray.join("/"));
+    return encodeURI(templateArray.join('/'));
   }
 
   async testBodyFields(tests, cb) {
