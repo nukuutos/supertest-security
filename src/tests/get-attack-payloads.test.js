@@ -1,5 +1,5 @@
 const { XSS, SQL_INJECTION } = require('../attack-types');
-const getAttackPayloads = require('../utils/get-attack-payloads');
+const getAttackPayloads = require('../data-preparation/utils/get-attack-payloads');
 
 describe('getAttackPayloads', () => {
   it('should successfully get attack payloads', () => {

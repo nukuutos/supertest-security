@@ -24,7 +24,7 @@
   },
   "overrides": [
     {
-      "files": "*/tests/**",
+      "files": "src/tests/**",
       "extends": ["plugin:jest/recommended", "plugin:jest/style"],
       "rules": {
         "node/no-unpublished-require": 0,

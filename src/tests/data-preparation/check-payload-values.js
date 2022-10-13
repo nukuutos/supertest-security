@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const getNestedValue = require('../../utils/get-nested-value');
+const getNestedValue = require('../../data-preparation/utils/get-nested-value');
 
 const checkPayloadValues = ({
   payloads,
@@ -25,7 +25,7 @@ const checkPayloadValues = ({
     checkImmutability(data, correctData);
   }
 
-  const pathOriginalValues = path.rootJoin('supertest-security', 'payloads', `${attackVector}.txt`);
+  const pathOriginalValues = path.rootJoin('src', 'payloads', `${attackVector}.txt`);
   const originalValues = fs.readFileSync(pathOriginalValues, { encoding: 'utf-8' }).split('\r\n');
 
   for (let i = 0; i < payloads.length; i++) {

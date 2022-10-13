@@ -1,5 +1,5 @@
 const { XSS, SQL_INJECTION } = require('../../attack-types');
-const dataPreparation = require('../../data-preparation');
+const dataPreparation = require('../../data-preparation/data-preparation');
 const checkPayloadValues = require('./check-payload-values');
 
 const correctData = {
