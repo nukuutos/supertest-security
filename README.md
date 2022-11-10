@@ -10,6 +10,18 @@ It's a library that allows us to test api endpoints by fuzzing them with malicio
 npm i -D supertest-security
 ```
 
+## Attack payloads
+
+Current payloads that library is using:
+
+- `SQL_INJECTION`
+- `NOSQL_INJECTION`
+- `XSS`
+- `GRAPHQL_INJECTION`
+- `PATH_TRAVERSAL`
+- `UNIX_COMMAND-INJECTION`
+- `WINDOWS_COMMAND-INJECTION`
+
 ## How to test body fields
 
 For example we want to test:
