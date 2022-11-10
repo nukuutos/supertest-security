@@ -53,7 +53,7 @@ describe('dataPreparation', () => {
     });
 
     expect(xssPayloads).not.toHaveLength(0);
-    expect(xssPayloads).not.toHaveLength(0);
+    expect(sqlPayloads).not.toHaveLength(0);
 
     const parameters = {
       payloads: xssPayloads,
@@ -127,7 +127,7 @@ describe('dataPreparation', () => {
     });
 
     expect(xssPayloads).not.toHaveLength(0);
-    expect(xssPayloads).not.toHaveLength(0);
+    expect(sqlPayloads).not.toHaveLength(0);
 
     const parameters = {
       payloads: xssPayloads,
@@ -193,7 +193,7 @@ describe('dataPreparation', () => {
     const template = {
       nested: {
         nestedNested: {
-          array: XSS,
+          array: [XSS, SQL_INJECTION],
         },
       },
     };
@@ -209,7 +209,7 @@ describe('dataPreparation', () => {
     });
 
     expect(xssPayloads).not.toHaveLength(0);
-    expect(xssPayloads).not.toHaveLength(0);
+    expect(sqlPayloads).not.toHaveLength(0);
 
     const xssParameters = {
       payloads: xssPayloads,

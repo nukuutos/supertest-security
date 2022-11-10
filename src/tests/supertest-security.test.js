@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { SQL_INJECTION } = require('../attack-types');
 
 const dataPreparation = require('../data-preparation/data-preparation');
 const SupertestSecurity = require('../supertest-security');
@@ -21,7 +22,7 @@ describe('Supertest security', () => {
     };
 
     const template = {
-      page: 'sql-injection',
+      page: SQL_INJECTION,
     };
 
     const tests = dataPreparation(queryFields, template);
@@ -66,7 +67,7 @@ describe('Supertest security', () => {
     };
 
     const template = {
-      name: 'sql-injection',
+      name: SQL_INJECTION,
     };
 
     const tests = dataPreparation(bodyFields, template);
