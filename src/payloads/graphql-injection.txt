@@ -1,0 +1,4 @@
+{__schema{types{name}}}
+{__schema}
+{}
+{thisdefinitelydoesnotexist}
