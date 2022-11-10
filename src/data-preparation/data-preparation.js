@@ -3,11 +3,14 @@ const cloneDeep = require('lodash.clonedeep');
 const getAttackVectors = require('./utils/get-attack-vectors');
 const getAttackPayloads = require('./utils/get-attack-payloads');
 const getNestedValue = require('./utils/get-nested-value');
+const checkCustomPayloads = require('./utils/check-custom-payloads');
 
-const dataPreparation = (data, template) => {
-  // need to check attack vectors end get it
+const dataPreparation = (data, template, customPayloads = {}) => {
+  checkCustomPayloads(customPayloads);
+
   const attackVectors = getAttackVectors(template);
-  const attackPayloads = getAttackPayloads(attackVectors);
+  const attackPayloads = getAttackPayloads(attackVectors, customPayloads);
+
   const tests = [];
 
   const helper = (keyPath = []) => {
