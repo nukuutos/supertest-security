@@ -132,7 +132,7 @@ const template = {
 };
 
 // creating tests
-const payloads = dataPreparation(correctData, template, customPayloads);
+const tests = dataPreparation(queryParams, template, customPayloads);
 
 supertest.testQueryParams(tests, (results) => {
   // your custom checks for results
