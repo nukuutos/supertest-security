@@ -1,7 +1,7 @@
-const path = require("path");
+const path = require('path');
 
 path.getRootDir = function () {
-  return process.env.PWD;
+  return path.join(__dirname, '../../');
 };
 
 path.rootJoin = function (...rest) {

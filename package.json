@@ -1,6 +1,6 @@
 {
   "name": "supertest-security",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "It's a library that allows us to test api endpoints by fuzzing them with malicious payloads that you can choose. It bases on `supertest` package.",
   "main": "index.js",
   "engines": {
