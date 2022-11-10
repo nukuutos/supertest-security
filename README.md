@@ -19,8 +19,8 @@ Current payloads that library is using:
 - `XSS`
 - `GRAPHQL_INJECTION`
 - `PATH_TRAVERSAL`
-- `UNIX_COMMAND-INJECTION`
-- `WINDOWS_COMMAND-INJECTION`
+- `UNIX_COMMAND_INJECTION`
+- `WINDOWS_COMMAND_INJECTION`
 
 ## How to test body fields
 
