@@ -97,4 +97,51 @@ describe('Supertest security', () => {
         });
     });
   });
+
+  // eslint-disable-next-line jest/expect-expect, jest/no-commented-out-tests
+  //   it('speedtest', async () => {
+  //     const config = {
+  //       endpoint: '/api/endpoint',
+  //       method: 'post',
+  //       headers: { authorization: 'Bearer auth string' },
+  //     };
+
+  //     const supertest = new SupertestSecurity(app, config);
+
+  //     const bodyFields = {
+  //       firstName: 'John',
+  //       lastName: 'Doe',
+  //       age: '18',
+  //       children: ['Chris', 'Elena', 'R2D2'],
+  //       geolocation: {
+  //         city: 'City',
+  //         address: 'Long address name',
+  //       },
+  //     };
+
+  //     const template = {
+  //       firstName: [XSS, SQL_INJECTION],
+  //       lastName: [XSS, SQL_INJECTION],
+  //       age: [XSS, SQL_INJECTION],
+  //       children: [XSS, SQL_INJECTION],
+  //       geolocation: {
+  //         city: [XSS, SQL_INJECTION],
+  //         address: [XSS, SQL_INJECTION],
+  //       },
+  //     };
+
+  //     const fieldsCount = 6;
+
+  //     const pathXSS = path.rootJoin('src', 'payloads', 'xss.txt');
+  //     const pathSQL = path.rootJoin('src', 'payloads', 'sql-injection.txt');
+
+  //     const xssLength = fs.readFileSync(pathXSS, { encoding: 'utf-8' }).split('\r\n').length;
+  //     const sqlLength = fs.readFileSync(pathSQL, { encoding: 'utf-8' }).split('\r\n').length;
+
+  //     console.log(`Execution of ${(xssLength + sqlLength) * fieldsCount} payloads`);
+  //     console.time(`Time`);
+  //     const tests = dataPreparation(bodyFields, template);
+  //     await supertest.testBodyFields(tests);
+  //     console.timeEnd(`Time`);
+  //   }, 120000);
 });
